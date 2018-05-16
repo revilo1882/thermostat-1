@@ -42,5 +42,30 @@ describe('Thermostat', function() {
     })
   });
 
+  describe('#reset', function() {
+    it('resets temperature to 20', function() {
+      thermostat.temperature = 23
+      thermostat.reset();
+      expect(thermostat.temperature).toBe(20);
+    })
+  });
+
+  describe('energy useage', function() {
+    it('displays "low-usage" when temperature less than 18', function() {
+      thermostat.temperature = 17;
+      expect(thermostat.energyUsage()).toEqual("low-usage");
+    })
+    it('displays "medium-usage" when temperature above 17 and below 25', function() {
+      thermostat.temperature = 24;
+      expect(thermostat.energyUsage()).toEqual("medium-usage");
+    })
+    it('displays "high-usage" when temperature 25 or above', function() {
+      thermostat.temperature = 25;
+      expect(thermostat.energyUsage()).toEqual("high-usage");
+    })
+  })
+
+
+
 
 });
