@@ -13,5 +13,9 @@ describe('Thermostat', function() {
       thermostat.up();
       expect(thermostat.temperature).toBe(21);
     });
+    it('can be decreased with down function', function() {
+      thermostat.down();
+      expect(thermostat.temperature).toBe(19);
+    });
   });
 });
