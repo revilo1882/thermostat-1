@@ -1,2 +1,7 @@
-var Thermostat = function() {};
-Thermostat.prototype.temperature = 20
+var Thermostat = function() {
+  this.temperature = 20;
+};
+
+Thermostat.prototype.up = function() {
+  this.temperature += 1;
+};
