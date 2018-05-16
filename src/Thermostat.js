@@ -4,9 +4,10 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.up = function() {
-  if (!this.powerSavingIsOn && this.temperature < 32) {
-    this.temperature += 1;
-  } else if (this.powerSavingIsOn && this.temperature < 25) {
+  if (
+    (!this.powerSavingIsOn && this.temperature < 32) ||
+    (this.powerSavingIsOn && this.temperature < 25)
+  ) {
     this.temperature += 1;
   }
 };
