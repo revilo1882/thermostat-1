@@ -27,7 +27,7 @@ describe('Thermostat', function() {
       thermostat.temperature = 32;
       thermostat.up();
       expect(thermostat.temperature).toBe(32);
-    })
+    });
   });
 
   describe('has a power saving mode', function() {
@@ -44,39 +44,42 @@ describe('Thermostat', function() {
       thermostat.turnPowerSavingOff();
       thermostat.turnPowerSavingOn();
       expect(thermostat.powerSavingIsOn).toBeTruthy();
-    })
+    });
 
     it('that limits maximum temperature to 25 degrees', function() {
       thermostat.temperature = 25;
       thermostat.up();
       expect(thermostat.temperature).toBe(25);
-    })
+    });
+
+    it('that sets temperature to 25 if currently over 25', function() {
+      thermostat.turnPowerSavingOff();
+      thermostat.temperature = 32;
+      thermostat.turnPowerSavingOn();
+      expect(thermostat.temperature).toBe(25);
+    });
   });
 
   describe('#reset', function() {
     it('resets temperature to 20', function() {
-      thermostat.temperature = 23
+      thermostat.temperature = 23;
       thermostat.reset();
       expect(thermostat.temperature).toBe(20);
-    })
+    });
   });
 
   describe('energy useage', function() {
     it('displays "low-usage" when temperature less than 18', function() {
       thermostat.temperature = 17;
-      expect(thermostat.energyUsage()).toEqual("low-usage");
-    })
+      expect(thermostat.energyUsage()).toEqual('low-usage');
+    });
     it('displays "medium-usage" when temperature above 17 and below 25', function() {
       thermostat.temperature = 24;
-      expect(thermostat.energyUsage()).toEqual("medium-usage");
-    })
+      expect(thermostat.energyUsage()).toEqual('medium-usage');
+    });
     it('displays "high-usage" when temperature 25 or above', function() {
       thermostat.temperature = 25;
-      expect(thermostat.energyUsage()).toEqual("high-usage");
-    })
-  })
-
-
-
-
+      expect(thermostat.energyUsage()).toEqual('high-usage');
+    });
+  });
 });
