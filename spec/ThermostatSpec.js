@@ -22,11 +22,25 @@ describe('Thermostat', function() {
       thermostat.down();
       expect(thermostat.temperature).toBe(10);
     });
+    it('cannot go above 32 degrees', function() {
+      thermostat.powerSavingIsOn = false;
+      thermostat.temperature = 32;
+      thermostat.up();
+      expect(thermostat.temperature).toBe(32);
+    })
   });
 
   describe('has a power saving mode', function() {
     it('that is on by default', function() {
       expect(thermostat.powerSavingIsOn).toBeTruthy();
     });
+
+    it('that limits maximum temperature to 25 degrees', function() {
+      thermostat.temperature = 25;
+      thermostat.up();
+      expect(thermostat.temperature).toBe(25);
+    })
   });
+
+
 });
