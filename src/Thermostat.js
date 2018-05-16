@@ -3,6 +3,14 @@ var Thermostat = function() {
   this.powerSavingIsOn = true;
 };
 
+Thermostat.prototype.turnPowerSavingOff = function() {
+  this.powerSavingIsOn = false;
+};
+
+Thermostat.prototype.turnPowerSavingOn = function() {
+  this.powerSavingIsOn = true;
+}
+
 Thermostat.prototype.up = function() {
   if (
     (!this.powerSavingIsOn && this.temperature < 32) ||

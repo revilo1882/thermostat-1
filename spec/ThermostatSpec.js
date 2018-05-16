@@ -35,6 +35,17 @@ describe('Thermostat', function() {
       expect(thermostat.powerSavingIsOn).toBeTruthy();
     });
 
+    it('that can be turned off', function() {
+      thermostat.turnPowerSavingOff();
+      expect(thermostat.powerSavingIsOn).toBeFalsy();
+    });
+
+    it('that can be turned on', function() {
+      thermostat.turnPowerSavingOff();
+      thermostat.turnPowerSavingOn();
+      expect(thermostat.powerSavingIsOn).toBeTruthy();
+    })
+
     it('that limits maximum temperature to 25 degrees', function() {
       thermostat.temperature = 25;
       thermostat.up();
