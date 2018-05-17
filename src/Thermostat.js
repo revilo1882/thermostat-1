@@ -9,13 +9,9 @@ var Thermostat = function() {
   this.powerSavingIsOn = true;
 };
 
-Thermostat.prototype.turnPowerSavingOff = function() {
-  this.powerSavingIsOn = false;
-};
-
-Thermostat.prototype.turnPowerSavingOn = function() {
-  this.powerSavingIsOn = true;
-  if (this.temperature > this.maxPSTemp) {
+Thermostat.prototype.togglePowerSaving = function() {
+  this.powerSavingIsOn = !this.prowerSavingIsOn;
+  if (this.powerSavingIsOn && this.temperature > this.maxPSTemp) {
     this.temperature = this.maxPSTemp;
   }
 };
