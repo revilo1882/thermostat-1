@@ -1,3 +1,5 @@
+'use strict';
+
 var Thermostat = function() {
   const MIN_TEMP = 10;
   const MAX_TEMP = 32;
