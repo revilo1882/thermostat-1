@@ -12,7 +12,7 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.togglePowerSaving = function() {
-  this.powerSavingIsOn = !this.prowerSavingIsOn;
+  this.powerSavingIsOn = !this.powerSavingIsOn;
   if (this.powerSavingIsOn && this.temperature > this.maxPSTemp) {
     this.temperature = this.maxPSTemp;
   }
