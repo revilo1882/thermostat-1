@@ -82,4 +82,14 @@ describe('Thermostat', function() {
       expect(thermostat.energyUsage()).toEqual('high-usage');
     });
   });
+
+  describe('eco display', function() {
+    it('dispays "eco on" when power saving on', function() {
+      expect(thermostat.ecoDisplay()).toEqual('eco on');
+    });
+    it('dispays "eco off" when power saving on', function() {
+      thermostat.togglePowerSaving();
+      expect(thermostat.ecoDisplay()).toEqual('eco off');
+    });
+  });
 });

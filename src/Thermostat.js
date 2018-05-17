@@ -46,3 +46,11 @@ Thermostat.prototype.energyUsage = function() {
     return 'high-usage';
   }
 };
+
+Thermostat.prototype.ecoDisplay = function() {
+  if (this.powerSavingIsOn) {
+    return 'eco on';
+  } else {
+    return 'eco off';
+  }
+};

@@ -19,15 +19,16 @@ $(document).ready(function() {
 
   $('#power-saving').click(function() {
     thermostat.togglePowerSaving();
-    console.log(thermostat.powerSavingIsOn);
     updateView();
   });
 
   $('#power-usage').click(function() {
-    console.log(thermostat.energyUsage());
+    updateView();
   });
 
   function updateView() {
     $('#display-temperature').text(thermostat.temperature);
+    $('#display-pu').text(thermostat.energyUsage());
+    $('#display-eco').text(thermostat.ecoDisplay());
   }
 });
