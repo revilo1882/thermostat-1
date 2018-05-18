@@ -17,9 +17,33 @@
     </div>
     <script src="src/thermostat-interface.js"></script>
     <script src="src/Thermostat.js"></script>
-    <script> $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=a3343928130124a1119726cf53789317", function(weatherResponse) {
-      $("#weather").html(Math.floor(weatherResponse.main.temp-273.15));
-    }); </script>
-    <p>London weather: <span id="weather"></span>&#8451;</p>
+
+    <select value="" name="test" id="mySelect" onchange="changeWeather()">
+    <option value=“” selected disabled hidden>Choose here</option>
+    <option value="earth">Earth</option>
+    <option value="mars">Mars</option>
+    <option value="jupiter">Jupiter</option>
+    </select>
+
+    <script>
+    function changeWeather() {
+        var x = document.getElementById("mySelect").value;
+        if(x === "earth"){
+          $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=a3343928130124a1119726cf53789317", function(weatherResponse) {
+            $("#weather").html(Math.floor(weatherResponse.main.temp-273.15));
+          });
+        } else if (x === "mars") {
+          $.get("http://api.openweathermap.org/data/2.5/weather?q=Mars&APPID=a3343928130124a1119726cf53789317", function(weatherResponse) {
+            $("#weather").html(Math.floor(weatherResponse.main.temp-273.15));
+          });
+        } else {
+          $.get("http://api.openweathermap.org/data/2.5/weather?q=Jupiter&APPID=a3343928130124a1119726cf53789317", function(weatherResponse) {
+            $("#weather").html(Math.floor(weatherResponse.main.temp-273.15));
+          });
+        }
+    }
+    </script>
+
+    <p><span id="weather"> CHOOSE PLANET TO SEE WEATHER IN </span>&#8451;</p>
   </body>
 </html>
