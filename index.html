@@ -18,5 +18,9 @@
     </div>
     <script src="src/thermostat-interface.js"></script>
     <script src="src/Thermostat.js"></script>
+    <script> $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=a3343928130124a1119726cf53789317", function(weatherResponse) {
+      $("#weather").html(Math.floor(weatherResponse.main.temp-273.15));
+    }); </script>
+    <p>London weather: <span id="weather"></span>&#8451;</p>
   </body>
 </html>
