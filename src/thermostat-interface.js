@@ -22,10 +22,6 @@ $(document).ready(function() {
     updateView();
   });
 
-  $('#power-usage').click(function() {
-    updateView();
-  });
-
   function updateView() {
     $('#display-temperature').text(thermostat.temperature);
     $('#display-pu').text(thermostat.energyUsage());
